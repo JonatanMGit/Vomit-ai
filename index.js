@@ -21,7 +21,14 @@ if (config.token == "Sus") {
 
 
 client.on('message', (message) => {
-	Tenor.Search.Query(message.content, "1").then(Results => {
+	howmany = ""
+	amount = "1"
+	if (message.content.includes('howmuch:')) {
+		howmany = message.content
+		amount = howmany.replace(/^\D+/g, '');
+	}
+	amount = Math.min(Math.max(parseInt(amount), 1), 5);
+	Tenor.Search.Query(message.content, amount).then(Results => {
 		if (message.author.bot) return;
 		Results.forEach(Post => {
 			client.channels.cache.get("851892495482355753").send(`${Post.url}`);
