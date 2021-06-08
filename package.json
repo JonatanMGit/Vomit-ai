@@ -1,0 +1,28 @@
+{
+	"name": "vomit-ai",
+	"version": "1.0.0",
+	"description": "Bot to automaticly send vomit gifs in a specified Discord channel",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JonatanMGit/Vomit-ai.git"
+	},
+	"keywords": [
+		"vomit",
+		"Discord"
+	],
+	"author": "Jonatan_M",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/JonatanMGit/Vomit-ai/issues"
+	},
+	"homepage": "https://github.com/JonatanMGit/Vomit-ai#readme",
+	"dependencies": {
+		"discord-buttons": "^3.2.1",
+		"discord.js": "^12.5.3",
+		"nodemon": "^2.0.7"
+	}
+}
