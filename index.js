@@ -25,8 +25,8 @@ client.on('message', (message) => {
 	searchquery = ""
 	if (message.content.includes('howmuch:')) {
 		howmany = message.content.replace(/^\D+/g, '');
+		searchquery = message.content.replace(/\howmuch:*/, '');
 	}
-	searchquery = message.content.replace(/\howmuch:*/, '');
 	howmany = Math.min(Math.max(parseInt(howmany), 1), 5);
 	Tenor.Search.Query(searchquery, howmany).then(Results => {
 		if (message.author.bot) return;
