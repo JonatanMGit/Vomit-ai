@@ -38,7 +38,6 @@ client.on('message', (message) => {
 			client.channels.cache.get("851892495482355753").send(Post.url);
 		});
 	}).catch(console.error);
-	client.channels.cache.get("838488382577049640").join();
 })
 
 schedule.scheduleJob('0 * * * *', function () {
