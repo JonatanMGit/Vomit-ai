@@ -33,7 +33,7 @@ client.on('message', (message) => {
 	}
 	searchquery = message.content.replace(/\howmuch:*/, '');
 	howmany = Math.min(Math.max(parseInt(howmany), 1), 5);
-	Tenor.Search.Query(searchquery, howmany).then(Results => {
+	Tenor.Search.Random(searchquery, howmany).then(Results => {
 		Results.forEach(Post => {
 			client.channels.cache.get("851892495482355753").send(Post.url);
 		});
