@@ -49,7 +49,7 @@ schedule.scheduleJob('0 * * * *', function () {
 	}).catch(console.error);
 });
 
-schedule.scheduleJob('*/30 * * * *', function () {
+schedule.scheduleJob('30 * * * *', function () {
 	Tenor.Search.Random("30 puke", "1").then(Results => {
 		Results.forEach(Post => {
 			client.channels.cache.get("851892495482355753").send("30 Minuten bis zur zeit");
