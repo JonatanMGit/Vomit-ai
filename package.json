@@ -4,7 +4,8 @@
 	"description": "Bot to automaticly send vomit gifs in a specified Discord channel",
 	"main": "index.js",
 	"scripts": {
-		"start": "nodemon index.js",
+		"dev": "nodemon index.js",
+		"start": "node index.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {

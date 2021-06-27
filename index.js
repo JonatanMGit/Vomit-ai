@@ -4,18 +4,18 @@ const client = new discord.Client();
 const disbut = require('discord-buttons');
 var schedule = require('node-schedule');
 const Tenor = require("tenorjs").client({
-	"Key": config.tenorkey, // https://tenor.com/developer/keyregistration
+	"Key": process.env.TenToken || config.tenorkey, // https://tenor.com/developer/keyregistration
 	"Filter": "off", // "off", "low", "medium", "high", not case sensitive
 	"Locale": "de_DE", // Your locale here, case-sensitivity depends on input
 	"MediaFilter": "minimal", // either minimal or basic, not case sensitive
 	"DateFormat": "D/MM/YYYY - H:mm:ss A" // Change this accordingly
 });
 
-if (config.token == "Sus") {
+if (process.env.DisToken && config.token == "") {
 	console.log("Please enter you Discord Token in the settings file")
 	process.exit(0)
 } else {
-	client.login(config.token);
+	client.login(process.env.DisToken || config.token);
 }
 
 client.on("ready", () => {
@@ -50,7 +50,7 @@ schedule.scheduleJob('0 * * * *', function () {
 });
 
 schedule.scheduleJob('30 * * * *', function () {
-	Tenor.Search.Random("30 puke", "1").then(Results => {
+	Tenor.Search.Random("30", "1").then(Results => {
 		client.channels.cache.get("851892495482355753").send("30 Minuten bis zur zeit");
 		Results.forEach(Post => {
 			client.channels.cache.get("851892495482355753").send(Post.url);
