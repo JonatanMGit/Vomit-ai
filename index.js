@@ -3,15 +3,28 @@ const config = require('./settings.json');
 const client = new discord.Client();
 const disbut = require('discord-buttons');
 var schedule = require('node-schedule');
+
+if (process.env.TenToken) {
+	TenorToken = process.env.TenToken
+} else {
+	TenorToken = config.tenorkey
+}
+
+if (process.env.DisToken) {
+	DisToken = process.env.DisToken
+} else {
+	DisToken = config.token
+}
+
 const Tenor = require("tenorjs").client({
-	"Key": process.env.TenToken || config.tenorkey, // https://tenor.com/developer/keyregistration
+	"Key": TenorToken, // https://tenor.com/developer/keyregistration
 	"Filter": "off", // "off", "low", "medium", "high", not case sensitive
 	"Locale": "de_DE", // Your locale here, case-sensitivity depends on input
 	"MediaFilter": "minimal", // either minimal or basic, not case sensitive
 	"DateFormat": "D/MM/YYYY - H:mm:ss A" // Change this accordingly
 });
 
-if (process.env.DisToken && config.token == "") {
+if (DisToken == "") {
 	console.log("Please enter you Discord Token in the settings file")
 	process.exit(0)
 } else {
