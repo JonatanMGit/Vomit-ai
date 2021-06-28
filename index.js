@@ -6,14 +6,11 @@ var schedule = require('node-schedule');
 
 if (process.env.TenToken) {
 	TenorToken = process.env.TenToken
-} else {
+} else if (config.tenorkey) {
 	TenorToken = config.tenorkey
-}
-
-if (process.env.DisToken) {
-	DisToken = process.env.DisToken
 } else {
-	DisToken = config.token
+	console.log("Please enter you Tenor Token in the settings file or create an Enviroment Variable (TenToken)")
+	process.exit(0)
 }
 
 const Tenor = require("tenorjs").client({
@@ -24,12 +21,16 @@ const Tenor = require("tenorjs").client({
 	"DateFormat": "D/MM/YYYY - H:mm:ss A" // Change this accordingly
 });
 
-if (DisToken == "") {
-	console.log("Please enter you Discord Token in the settings file")
-	process.exit(0)
+if (process.env.DisToken) {
+	DisToken = process.env.DisToken
+} else if (config.token) {
+	DisToken = config.token
 } else {
-	client.login(process.env.DisToken || config.token);
+	console.log("Please enter you Discord Token in the settings file or create an Enviroment Variable (DisToken)")
+	process.exit(0)
 }
+client.login(process.env.DisToken || config.token);
+
 
 client.on("ready", () => {
 	client.guilds.cache.forEach(guild => {
