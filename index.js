@@ -1,36 +1,18 @@
 const discord = require('discord.js');
-const config = require('./settings.json');
+const config = require('./settings.js');
 const client = new discord.Client();
 const disbut = require('discord-buttons');
 var schedule = require('node-schedule');
 
-if (process.env.TenToken) {
-	TenorToken = process.env.TenToken
-} else if (config.tenorkey) {
-	TenorToken = config.tenorkey
-} else {
-	console.log("Please enter you Tenor Token in the settings file or create an Enviroment Variable (TenToken)")
-	process.exit(0)
-}
-
 const Tenor = require("tenorjs").client({
-	"Key": TenorToken, // https://tenor.com/developer/keyregistration
+	"Key": config.TenorToken, // https://tenor.com/developer/keyregistration
 	"Filter": "off", // "off", "low", "medium", "high", not case sensitive
 	"Locale": "de_DE", // Your locale here, case-sensitivity depends on input
 	"MediaFilter": "minimal", // either minimal or basic, not case sensitive
 	"DateFormat": "D/MM/YYYY - H:mm:ss A" // Change this accordingly
 });
 
-if (process.env.DisToken) {
-	DisToken = process.env.DisToken
-} else if (config.token) {
-	DisToken = config.token
-} else {
-	console.log("Please enter you Discord Token in the settings file or create an Enviroment Variable (DisToken)")
-	process.exit(0)
-}
-client.login(process.env.DisToken || config.token);
-
+client.login(config.DisToken)
 
 client.on("ready", () => {
 	client.guilds.cache.forEach(guild => {
