@@ -32,6 +32,7 @@ client.on('message', (message) => {
 	Tenor.Search.Random(searchquery, howmany).then(Results => {
 		Results.forEach(Post => {
 			client.channels.cache.get("851892495482355753").send(Post.url);
+			if (config.Verbose) console.log(`Query ${searchquery} responded with ${Post.url}`);
 		});
 	}).catch(console.error);
 })
@@ -41,6 +42,7 @@ schedule.scheduleJob('0 * * * *', function () {
 		client.channels.cache.get("851892495482355753").send("Es ist zeit");
 		Results.forEach(Post => {
 			client.channels.cache.get("851892495482355753").send(Post.url);
+			if (config.Verbose) console.log(`Full Hour responded with ${Post.url}`);
 		});
 	}).catch(console.error);
 });
@@ -50,6 +52,7 @@ schedule.scheduleJob('30 * * * *', function () {
 		client.channels.cache.get("851892495482355753").send("30 Minuten bis zur zeit");
 		Results.forEach(Post => {
 			client.channels.cache.get("851892495482355753").send(Post.url);
+			if (config.Verbose) console.log(`Half Hour responded with ${Post.url}`);
 		});
 	}).catch(console.error);
 });
