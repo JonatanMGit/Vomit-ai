@@ -27,7 +27,7 @@ client.on('message', (message) => {
 	if (message.content.includes('howmuch:')) {
 		howmany = message.content.replace(/^\D+/g, '');
 	}
-	searchquery = message.content.replace(/\howmuch:*/, '');
+	searchquery = message.content.replace(/howmuch.*$/, '');
 	howmany = Math.min(Math.max(parseInt(howmany), 1), 5);
 	Tenor.Search.Random(searchquery, howmany).then(Results => {
 		Results.forEach(Post => {
