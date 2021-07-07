@@ -22,6 +22,10 @@ client.on("ready", () => {
 
 client.on('message', (message) => {
 	if (message.author.bot) return;
+	if (message.content.includes("sex")) {
+		message.reply("Bitte kein sex in der Nachricht beinhalten!")
+		return
+	}
 	howmany = "1"
 	searchquery = ""
 	if (message.content.includes('howmuch:')) {
