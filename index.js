@@ -47,7 +47,7 @@ schedule.scheduleJob('0 * * * *', function () {
 		client.channels.cache.get("851892495482355753").send("Es ist zeit").catch(console.error);
 		Results.forEach(Post => {
 			client.channels.cache.get("851892495482355753").send(Post.url).catch(console.error);
-			if (config.Verbose) console.log(`Full Hour responded with ${Post.url}`).catch(console.error);
+			if (config.Verbose) console.log(`Full Hour responded with ${Post.url}`);
 		});
 	}).catch(console.error);
 });
