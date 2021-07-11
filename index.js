@@ -35,7 +35,8 @@ client.on('message', (message) => {
 	howmany = Math.min(Math.max(parseInt(howmany), 1), 5);
 	Tenor.Search.Random(searchquery, howmany).then(Results => {
 		Results.forEach(Post => {
-			client.channels.cache.get("851892495482355753").send(Post.url);
+			client.channels.cache.get("851892495482355753").send(Post.url).catch(console.error);;
+			client.channels.cache.get("863382495680659456").send(Post.url).catch(console.error);
 			if (config.Verbose) console.log(`Query ${searchquery} responded with ${Post.url}`);
 		});
 	}).catch(console.error);
@@ -43,20 +44,25 @@ client.on('message', (message) => {
 
 schedule.scheduleJob('0 * * * *', function () {
 	Tenor.Search.Random("vomit puke", "2").then(Results => {
-		client.channels.cache.get("851892495482355753").send("Es ist zeit");
+		client.channels.cache.get("851892495482355753").send("Es ist zeit").catch(console.error);
 		Results.forEach(Post => {
-			client.channels.cache.get("851892495482355753").send(Post.url);
-			if (config.Verbose) console.log(`Full Hour responded with ${Post.url}`);
+			client.channels.cache.get("851892495482355753").send(Post.url).catch(console.error);
+			if (config.Verbose) console.log(`Full Hour responded with ${Post.url}`).catch(console.error);
 		});
 	}).catch(console.error);
 });
 
 schedule.scheduleJob('30 * * * *', function () {
 	Tenor.Search.Random("30", "1").then(Results => {
-		client.channels.cache.get("851892495482355753").send("30 Minuten bis zur zeit");
+		client.channels.cache.get("851892495482355753").send("30 Minuten bis zur zeit").catch(console.error);
 		Results.forEach(Post => {
 			client.channels.cache.get("851892495482355753").send(Post.url);
 			if (config.Verbose) console.log(`Half Hour responded with ${Post.url}`);
 		});
 	}).catch(console.error);
+});
+
+process.on('uncaughtException', function (err) {
+	console.error(err);
+	console.log("Probably EAI_AGAIN error");
 });
