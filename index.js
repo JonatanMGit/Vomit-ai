@@ -22,7 +22,7 @@ client.on("ready", () => {
 
 client.on('message', (message) => {
 	if (message.author.bot) return;
-	if (message.content.includes("sex")) {
+	if (message.content.toLowerCase().includes("sex")) {
 		message.reply("Bitte kein sex in der Nachricht beinhalten!")
 		return
 	}
