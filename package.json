@@ -23,7 +23,6 @@
 	},
 	"homepage": "https://github.com/JonatanMGit/Vomit-ai#readme",
 	"dependencies": {
-		"discord-buttons": "^3.2.1",
 		"discord.js": "^12.5.3",
 		"node-schedule": "^2.0.0",
 		"nodemon": "^2.0.7",

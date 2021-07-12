@@ -4,4 +4,3 @@ module.exports = {
 	TenorToken: process.env.TenToken || '' || console.error("Enter Your Tenor Token in the Settings file!"),
 	Verbose: process.env.VerboseLogging || false
 }
-

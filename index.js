@@ -1,7 +1,6 @@
 const discord = require('discord.js');
 const config = require('./settings.js');
 const client = new discord.Client();
-const disbut = require('discord-buttons');
 var schedule = require('node-schedule');
 
 const Tenor = require("tenorjs").client({
