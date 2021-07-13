@@ -1,0 +1,1 @@
+## To Get support [join our discord Server!](discord.gg/qAFBs3NhWr)
