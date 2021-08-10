@@ -25,7 +25,7 @@
 	},
 	"homepage": "https://github.com/JonatanMGit/Vomit-ai#readme",
 	"dependencies": {
-		"discord.js": "^12.5.3",
+		"discord.js": "^13.0.1",
 		"node-schedule": "^2.0.0",
 		"tenorjs": "^1.0.8",
 		"ts-node": "^10.2.0",
