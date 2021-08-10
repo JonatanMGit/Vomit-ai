@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { Client, TextChannel } from "discord.js";
-const config = require("./settings.js");
+const config = require("./settings.ts");
 const client = new Client(config.token);
 import schedule = require("node-schedule");
 
@@ -75,7 +75,6 @@ schedule.scheduleJob("30 * * * *", function () {
 				(client.channels.cache.get("851892495482355753") as TextChannel)
 					.send(Post.url)
 					.catch(console.error);
-				if (config.Verbose) console.log(`Full Hour responded with ${Post.url}`);
 				if (config.Verbose) console.log(`Half Hour responded with ${Post.url}`);
 			});
 		})
