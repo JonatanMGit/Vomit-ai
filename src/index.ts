@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { Client, TextChannel } from "discord.js";
 const config = require("./settings.ts");
-const client = new Client(config.token);
+
+import { Client, Intents, TextChannel } from "discord.js";
+
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+
 import schedule = require("node-schedule");
 
 const Tenor = require("tenorjs").client({
@@ -20,7 +23,7 @@ client.on("ready", () => {
 	});
 });
 
-client.on("message", (message) => {
+client.on("messageCreate", (message) => {
 	if (message.author.bot) return;
 	if (message.content.toLowerCase().includes("sex")) {
 		message.reply("Bitte kein sex in der Nachricht beinhalten!");
