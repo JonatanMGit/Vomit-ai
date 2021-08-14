@@ -1,0 +1,7 @@
+* text eol=lf
+
+*.ts text
+*.js text
+*.json text
+*.md text
+Dockerfile text
