@@ -3,9 +3,9 @@ import { Client, Intents, TextChannel} from "discord.js";
 import schedule = require("node-schedule");
 const config = require("./settings.ts");
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-const fs = require("fs");
-const { REST } = require("@discordjs/rest");
-const { Routes } = require("discord-api-types/v9");
+import fs from "fs";
+import { REST } from "@discordjs/rest";
+import { Routes } from "discord-api-types/v9";
 
 const Tenor = require("tenorjs").client({
 	Key: config.TenorToken, // https://tenor.com/developer/keyregistration
