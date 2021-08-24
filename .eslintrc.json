@@ -16,7 +16,7 @@
     ],
     "rules": {
         "indent": [
-            "error",
+            "warn",
             "tab"
         ],
         "linebreak-style": [
@@ -24,13 +24,13 @@
             "unix"
         ],
         "quotes": [
-            "error",
+            "warn",
             "double"
         ],
         "semi": [
-            "error",
+            "warn",
             "always"
         ],
-        "no-var-requires": 0
+        "@typescript-eslint/no-var-requires": 0
     }
 }

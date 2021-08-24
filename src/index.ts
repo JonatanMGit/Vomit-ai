@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import { Client, Intents, TextChannel} from "discord.js";
 import schedule = require("node-schedule");
 const config = require("./settings.ts");
