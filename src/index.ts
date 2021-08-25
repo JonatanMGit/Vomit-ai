@@ -55,12 +55,6 @@ client.on("ready", () => {
 
 client.login(config.DisToken);
 
-client.on("ready", () => {
-	client.guilds.cache.forEach((guild) => {
-		console.log(`${guild.name} | ${guild.id}`);
-	});
-});
-
 client.on("interactionCreate", async interaction => {
 	if (!interaction.isCommand()) return;
 
