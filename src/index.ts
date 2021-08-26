@@ -56,6 +56,7 @@ client.on("ready", () => {
 client.login(config.DisToken);
 
 client.on("interactionCreate", async interaction => {
+	console.log(interaction);
 	if (!interaction.isCommand()) return;
 
 	const command = require(`./commands/${interaction.commandName}`);
@@ -133,9 +134,14 @@ if (config.sendgifs) {
 			})
 			.catch(console.error);
 	});
-
-	process.on("uncaughtException", function (err) {
-		console.log("An Error has occured!");
-		console.error(err);
-	});
 }
+
+process.on("unhandledRejection", function (err) {
+	console.log("An Error has occured!");
+	console.error(err);
+});
+
+process.on("uncaughtException", function (err) {
+	console.log("An Error has occured!");
+	console.error(err);
+});
