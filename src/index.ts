@@ -56,7 +56,6 @@ client.on("ready", () => {
 client.login(config.DisToken);
 
 client.on("interactionCreate", async interaction => {
-	console.log(interaction);
 	if (!interaction.isCommand()) return;
 
 	const command = require(`./commands/${interaction.commandName}`);
