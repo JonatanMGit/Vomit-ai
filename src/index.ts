@@ -1,6 +1,6 @@
 import { Client, Intents, TextChannel} from "discord.js";
 import schedule = require("node-schedule");
-const config = require("./settings.ts");
+import config from "./settings";
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 import fs from "fs";
 import { REST } from "@discordjs/rest";

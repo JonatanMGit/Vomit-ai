@@ -1,7 +1,18 @@
+const DisToken = "";
+const TenorToken = "";
 
-module.exports = {
-	DisToken: process.env.DisToken || "" || console.error("Enter Your Discord Token in the Settings file or create an Enviroment Variable called 'DisToken' !"),
-	TenorToken: process.env.TenToken || "" || console.error("Enter Your Tenor Token in the Settings file or create an Enviroment Variable called 'TenorToken' !"),
-	Verbose: process.env.VerboseLogging || false,
-	sendgifs: process.env.SendGifs || false
+if (DisToken === "") {
+	console.error("DisToken is not set");
+	process.exit(1);
+}
+if (TenorToken === "") {
+	console.error("TenorToken is not set");
+	process.exit(1);
+}
+
+export = {
+	DisToken: process.env.DisToken || DisToken,
+	TenorToken: process.env.TenToken || TenorToken,
+	Verbose: Boolean(process.env.VerboseLogging) || false,
+	sendgifs: Boolean(process.env.SendGifs) || false
 };
