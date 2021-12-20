@@ -28,7 +28,7 @@
 	"homepage": "https://github.com/JonatanMGit/Vomit-ai#readme",
 	"dependencies": {
 		"@discordjs/builders": "^0.9.0",
-		"@discordjs/rest": "^0.1.0-canary.0",
+		"@discordjs/rest": "^0.2.0-canary.0",
 		"@types/node": "^16.7.1",
 		"@types/node-schedule": "^1.3.2",
 		"discord-api-types": "^0.25.0",
